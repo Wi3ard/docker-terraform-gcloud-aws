@@ -11,3 +11,5 @@ This repository features the Docker container for using the terraform command li
 - [X] AWS CLI 1.16.93
 - [X] kubectl 1.13.2
 - [X] Helm 2.12.2
+- [X] Go 1.10.7
+- [X] [3rd-party Kubernetes Terraform Provider](https://github.com/sl1pm4t/terraform-provider-kubernetes) with the support for additional Kubernetes resources
