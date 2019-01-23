@@ -36,7 +36,7 @@ RUN mkdir -p $GOPATH/src/github.com/sl1pm4t && \
   git clone https://github.com/sl1pm4t/terraform-provider-kubernetes && \
   cd $GOPATH/src/github.com/sl1pm4t/terraform-provider-kubernetes && \
   make build && \
-  mkdir -p ~/terraform.d/plugins && \
-  cp $GOPATH/bin/terraform-provider-kubernetes ~/terraform.d/plugins
+  mkdir -p ~/terraform.d/plugins/linux_amd64 && \
+  cp $GOPATH/bin/terraform-provider-kubernetes ~/terraform.d/plugins/linux_amd64
 
 ENTRYPOINT []
