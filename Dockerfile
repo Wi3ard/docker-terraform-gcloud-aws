@@ -19,6 +19,11 @@ RUN curl -o /tmp/awscli-bundle.zip -SSL https://s3.amazonaws.com/aws-cli/awscli-
   unzip /tmp/awscli-bundle.zip -d /tmp && \
   /tmp/awscli-bundle/install -i /usr/aws -b /bin/aws
 
+# Install AWS IAM authenticator.
+RUN curl -o /bin/aws-iam-authenticator https://amazon-eks.s3-us-west-2.amazonaws.com/1.11.5/2018-12-06/bin/linux/amd64/aws-iam-authenticator && \
+  chmod +x /bin/aws-iam-authenticator && \
+  cp /bin/aws-iam-authenticator /bin/aws-iam-authenticator.exe
+
 # Install kubectl (1.13.2). Latest stable version can be found at https://storage.googleapis.com/kubernetes-release/release/stable.txt.
 RUN curl -o /bin/kubectl -sSL https://storage.googleapis.com/kubernetes-release/release/v1.13.2/bin/linux/amd64/kubectl && \
   chmod +x /bin/kubectl

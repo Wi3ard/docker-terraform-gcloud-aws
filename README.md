@@ -8,7 +8,7 @@ This repository features the Docker container for using the terraform command li
 
 - [X] Terraform 0.11.11
 - [X] Google Cloud SDK 230.0.0
-- [X] AWS CLI 1.16.93
+- [X] AWS CLI 1.16.93 + aws-iam-authenticator
 - [X] kubectl 1.13.2
 - [X] Helm 2.12.2
 - [X] Go 1.10.7
