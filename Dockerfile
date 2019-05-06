@@ -1,4 +1,4 @@
-FROM hashicorp/terraform:0.11.11
+FROM hashicorp/terraform:0.11.13
 
 # Install dependencies.
 RUN apk add --no-cache \
@@ -24,12 +24,12 @@ RUN curl -o /bin/aws-iam-authenticator https://amazon-eks.s3-us-west-2.amazonaws
   chmod +x /bin/aws-iam-authenticator && \
   cp /bin/aws-iam-authenticator /bin/aws-iam-authenticator.exe
 
-# Install kubectl (1.13.2). Latest stable version can be found at https://storage.googleapis.com/kubernetes-release/release/stable.txt.
-RUN curl -o /bin/kubectl -sSL https://storage.googleapis.com/kubernetes-release/release/v1.13.2/bin/linux/amd64/kubectl && \
+# Install kubectl (1.14.1). Latest stable version can be found at https://storage.googleapis.com/kubernetes-release/release/stable.txt.
+RUN curl -o /bin/kubectl -sSL https://storage.googleapis.com/kubernetes-release/release/v1.14.1/bin/linux/amd64/kubectl && \
   chmod +x /bin/kubectl
 
-# Install Helm (2.12.2).
-RUN curl -sSL https://raw.githubusercontent.com/helm/helm/v2.12.2/scripts/get | bash
+# Install Helm (2.13.1).
+RUN curl -sSL https://raw.githubusercontent.com/helm/helm/v2.13.1/scripts/get | bash
 
 # Configure Go.
 RUN mkdir -p /go
