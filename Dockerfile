@@ -29,7 +29,8 @@ RUN curl -o /bin/kubectl -sSL https://storage.googleapis.com/kubernetes-release/
   chmod +x /bin/kubectl
 
 # Install Helm (2.13.1).
-RUN curl -sSL https://raw.githubusercontent.com/helm/helm/v2.13.1/scripts/get | bash
+ENV DESIRED_VERSION=v2.13.1
+RUN curl -sSL https://raw.githubusercontent.com/helm/helm/master/scripts/get | bash
 
 # Configure Go.
 RUN mkdir -p /go
@@ -40,6 +41,7 @@ RUN mkdir -p $GOPATH/src/github.com/sl1pm4t && \
   cd $GOPATH/src/github.com/sl1pm4t && \
   git clone https://github.com/sl1pm4t/terraform-provider-kubernetes && \
   cd $GOPATH/src/github.com/sl1pm4t/terraform-provider-kubernetes && \
+  make fmt && \
   make build && \
   mkdir -p /root/.terraform.d/plugins && \
   cp $GOPATH/bin/terraform-provider-kubernetes /root/.terraform.d/plugins
