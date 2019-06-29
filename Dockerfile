@@ -38,10 +38,10 @@ RUN mkdir -p /go
 ENV GOPATH "/go"
 
 # Install 3rd party Terraform Kubernetes plugin with the support for beta resources.
-RUN mkdir -p $GOPATH/src/github.com/sl1pm4t && \
-  cd $GOPATH/src/github.com/sl1pm4t && \
-  git clone https://github.com/sl1pm4t/terraform-provider-kubernetes && \
-  cd $GOPATH/src/github.com/sl1pm4t/terraform-provider-kubernetes && \
+RUN mkdir -p $GOPATH/src/github.com/terraform-providers && \
+  cd $GOPATH/src/github.com/terraform-providers && \
+  git clone https://github.com/terraform-providers/terraform-provider-kubernetes.git && \
+  cd $GOPATH/src/github.com/terraform-providers/terraform-provider-kubernetes && \
   make fmt && \
   make build && \
   mkdir -p /root/.terraform.d/plugins && \
