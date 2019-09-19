@@ -4,6 +4,7 @@ FROM hashicorp/terraform:0.12.9
 RUN apk add --no-cache \
   bash \
   curl \
+  openssl \
   python
 
 # Install Google Cloud SDK (latest version).
