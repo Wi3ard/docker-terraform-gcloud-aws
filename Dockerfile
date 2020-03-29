@@ -21,8 +21,8 @@ RUN curl -o /bin/aws-iam-authenticator https://amazon-eks.s3-us-west-2.amazonaws
   chmod +x /bin/aws-iam-authenticator && \
   cp /bin/aws-iam-authenticator /bin/aws-iam-authenticator.exe
 
-# Install kubectl (1.17.4). Latest stable version can be found at https://storage.googleapis.com/kubernetes-release/release/stable.txt
-RUN curl -o /bin/kubectl -sSL https://storage.googleapis.com/kubernetes-release/release/v1.17.4/bin/linux/amd64/kubectl && \
+# Install kubectl (1.18.0). Latest stable version can be found at https://storage.googleapis.com/kubernetes-release/release/stable.txt
+RUN curl -o /bin/kubectl -sSL https://storage.googleapis.com/kubernetes-release/release/v1.18.0/bin/linux/amd64/kubectl && \
   chmod +x /bin/kubectl
 
 # Install Helm (3.1.2). Version histroy can be found at https://github.com/helm/helm/tags
