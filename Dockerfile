@@ -9,6 +9,7 @@ RUN apk add --no-cache \
 
 # Install Google Cloud SDK (latest version).
 RUN curl -sSL https://sdk.cloud.google.com | bash -s -- --disable-prompts
+RUN ~/google-cloud-sdk/bin/gcloud components update
 ENV PATH "~/google-cloud-sdk/bin:$PATH"
 
 # Install AWS CLI (latest version). Latest version information can be found at https://github.com/aws/aws-cli/blob/master/CHANGELOG.rst
@@ -28,5 +29,6 @@ RUN curl -o /bin/kubectl -sSL https://storage.googleapis.com/kubernetes-release/
 # Install Helm (3.1.2). Version histroy can be found at https://github.com/helm/helm/tags
 ENV DESIRED_VERSION=v3.1.2
 RUN curl -sSL https://raw.githubusercontent.com/helm/helm/master/scripts/get | bash
+RUN helm repo add stable https://kubernetes-charts.storage.googleapis.com/
 
 ENTRYPOINT []
