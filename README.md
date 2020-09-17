@@ -10,8 +10,8 @@ bundled in.
 
 ## Features
 
-- [x] Terraform 0.13.2
-- [x] Google Cloud SDK 309.0.0
-- [x] AWS CLI 1.18.137 + aws-iam-authenticator
-- [x] kubectl 1.19.1
+- [x] Terraform 0.13.3
+- [x] Google Cloud SDK 310.0.0
+- [x] AWS CLI 1.18.140 + aws-iam-authenticator
+- [x] kubectl 1.19.2
 - [x] Helm 3.3.1
