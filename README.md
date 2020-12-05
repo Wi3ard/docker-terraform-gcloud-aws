@@ -10,7 +10,7 @@ bundled in.
 
 ## Features
 
-- [x] Terraform 0.14.0
+- [x] Terraform 0.13.0
 - [x] Terragrunt 0.26.7
 - [x] Google Cloud SDK 319.0.0
 - [x] AWS CLI 1.18.188 + aws-iam-authenticator
