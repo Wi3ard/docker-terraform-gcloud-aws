@@ -11,19 +11,18 @@ RUN apk add --no-cache --update \
 
 # Install build dependencies.
 # Ref: https://github.com/sgerrand/alpine-pkg-glibc/releases
-ENV GLIBC_VER=2.35-r0
 RUN apk add --no-cache --virtual build_tools \
   binutils \
   gnupg-dirmngr \
   gpgme \
   && curl -sSL https://alpine-pkgs.sgerrand.com/sgerrand.rsa.pub -o /etc/apk/keys/sgerrand.rsa.pub \
-  && curl -sSLO https://github.com/sgerrand/alpine-pkg-glibc/releases/download/${GLIBC_VER}/glibc-${GLIBC_VER}.apk \
-  && curl -sSLO https://github.com/sgerrand/alpine-pkg-glibc/releases/download/${GLIBC_VER}/glibc-bin-${GLIBC_VER}.apk \
-  && curl -sSLO https://github.com/sgerrand/alpine-pkg-glibc/releases/download/${GLIBC_VER}/glibc-i18n-${GLIBC_VER}.apk \
+  && curl -sSLO https://github.com/sgerrand/alpine-pkg-glibc/releases/download/2.35-r0/glibc-2.35-r0.apk \
+  && curl -sSLO https://github.com/sgerrand/alpine-pkg-glibc/releases/download/2.35-r0/glibc-bin-2.35-r0.apk \
+  && curl -sSLO https://github.com/sgerrand/alpine-pkg-glibc/releases/download/2.35-r0/glibc-i18n-2.35-r0.apk \
   && apk add --no-cache \
-  glibc-${GLIBC_VER}.apk \
-  glibc-bin-${GLIBC_VER}.apk \
-  glibc-i18n-${GLIBC_VER}.apk \
+  glibc-2.35-r0.apk \
+  glibc-bin-2.35-r0.apk \
+  glibc-i18n-2.35-r0.apk \
   && /usr/glibc-compat/bin/localedef -i en_US -f UTF-8 en_US.UTF-8 \
   && ln -sf /usr/glibc-compat/lib/ld-linux-x86-64.so.2 /lib64/ld-linux-x86-64.so.2
 
@@ -72,7 +71,7 @@ ADD https://storage.googleapis.com/kubernetes-release/release/${KUBECTL_VERSION}
 RUN chmod u+x /usr/bin/kubectl
 
 # Install Helm (3.10.1). Version histroy can be found at https://github.com/helm/helm/tags
-ENV DESIRED_VERSION=v3.10.1
+ENV DESIRED_VERSION v3.10.1
 RUN curl -sSL https://raw.githubusercontent.com/helm/helm/master/scripts/get | bash \
   && helm repo add stable https://charts.helm.sh/stable
 
