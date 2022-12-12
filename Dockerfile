@@ -19,7 +19,7 @@ RUN apk add --no-cache --virtual build_tools \
   && curl -sSLO https://github.com/sgerrand/alpine-pkg-glibc/releases/download/2.35-r0/glibc-2.35-r0.apk \
   && curl -sSLO https://github.com/sgerrand/alpine-pkg-glibc/releases/download/2.35-r0/glibc-bin-2.35-r0.apk \
   && curl -sSLO https://github.com/sgerrand/alpine-pkg-glibc/releases/download/2.35-r0/glibc-i18n-2.35-r0.apk \
-  && apk add --no-cache \
+  && apk add --no-cache --force-overwrite \
   glibc-2.35-r0.apk \
   glibc-bin-2.35-r0.apk \
   glibc-i18n-2.35-r0.apk \
