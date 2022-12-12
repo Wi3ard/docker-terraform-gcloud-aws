@@ -34,7 +34,7 @@ RUN mv /bin/terragrunt_linux_amd64 /bin/terragrunt \
 
 # Install Google Cloud SDK (latest version). Ref: https://cloud.google.com/sdk/docs/release-notes
 RUN curl -sSL https://sdk.cloud.google.com | bash -s -- --disable-prompts
-RUN ~/google-cloud-sdk/bin/gcloud components update
+RUN ~/google-cloud-sdk/bin/gcloud components update && gcloud components install beta
 ENV PATH "~/google-cloud-sdk/bin:$PATH"
 
 # Install AWS CLI (latest version). Ref https://github.com/aws/aws-cli/blob/v2/CHANGELOG.rst
