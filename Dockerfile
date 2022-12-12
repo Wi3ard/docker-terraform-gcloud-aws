@@ -1,4 +1,4 @@
-FROM hashicorp/terraform:1.3.3
+FROM hashicorp/terraform:1.3.6
 
 # Install dependencies.
 RUN apk add --no-cache --update \
@@ -26,8 +26,8 @@ RUN apk add --no-cache --virtual build_tools \
   && /usr/glibc-compat/bin/localedef -i en_US -f UTF-8 en_US.UTF-8 \
   && ln -sf /usr/glibc-compat/lib/ld-linux-x86-64.so.2 /lib64/ld-linux-x86-64.so.2
 
-# Install Terragrunt (0.39.2). Ref: https://github.com/gruntwork-io/terragrunt/releases
-ENV TERRAGRUNT_VERSION v0.39.2
+# Install Terragrunt (0.42.3). Ref: https://github.com/gruntwork-io/terragrunt/releases
+ENV TERRAGRUNT_VERSION v0.42.3
 ADD https://github.com/gruntwork-io/terragrunt/releases/download/${TERRAGRUNT_VERSION}/terragrunt_linux_amd64 /bin/
 RUN mv /bin/terragrunt_linux_amd64 /bin/terragrunt \
   && chmod u+x /bin/terragrunt
@@ -53,7 +53,7 @@ RUN chmod u+x /usr/bin/aws-iam-authenticator \
   && cp /usr/bin/aws-iam-authenticator /usr/bin/aws-iam-authenticator.exe
 
 # Install HashiCorp Vault. Ref: https://www.vaultproject.io/downloads
-ENV VAULT_VERSION 1.12.0
+ENV VAULT_VERSION 1.12.2
 ENV VAULT_GPGKEY C874011F0AB405110D02105534365D9472D7468F
 ADD https://releases.hashicorp.com/vault/${VAULT_VERSION}/vault_${VAULT_VERSION}_linux_amd64.zip /tmp/
 ADD https://releases.hashicorp.com/vault/${VAULT_VERSION}/vault_${VAULT_VERSION}_SHA256SUMS /tmp/
@@ -65,13 +65,13 @@ RUN cd /tmp \
   && unzip /tmp/vault_${VAULT_VERSION}_linux_amd64.zip -d /usr/bin \
   && cd -
 
-# Install kubectl (v1.25.3). Ref https://storage.googleapis.com/kubernetes-release/release/stable.txt
-ENV KUBECTL_VERSION v1.25.3
+# Install kubectl (v1.26.0). Ref https://storage.googleapis.com/kubernetes-release/release/stable.txt
+ENV KUBECTL_VERSION v1.26.0
 ADD https://storage.googleapis.com/kubernetes-release/release/${KUBECTL_VERSION}/bin/linux/amd64/kubectl /usr/bin/
 RUN chmod u+x /usr/bin/kubectl
 
-# Install Helm (3.10.1). Version histroy can be found at https://github.com/helm/helm/tags
-ENV DESIRED_VERSION v3.10.1
+# Install Helm (3.10.2). Version histroy can be found at https://github.com/helm/helm/tags
+ENV DESIRED_VERSION v3.10.2
 RUN curl -sSL https://raw.githubusercontent.com/helm/helm/master/scripts/get | bash \
   && helm repo add stable https://charts.helm.sh/stable
 
